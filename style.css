@@ -1,17 +1,3 @@
-/* --- Variables & Reset --- */
-:root {
-    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --primary-color: #6c5ce7;
-    --secondary-color: #a29bfe;
-    --text-primary: #2d3436;
-    --text-secondary: #636e72;
-    --bg-color: #f3f4f6;
-    --card-bg: #ffffff;
-    --danger-color: #ff7675;
-    --success-color: #00b894;
-    --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    --radius: 12px;
-}
 
 * {
     margin: 0;
@@ -21,26 +7,25 @@
 }
 
 body {
-    background: var(--primary-gradient);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px; /* Prevents edge touching on mobile */
+    padding: 20px; 
 }
 
-/* --- Main Container --- */
+
 .container {
-    background: var(--card-bg);
+    background: #ffffff;
     width: 100%;
     max-width: 480px;
     padding: 2rem;
     border-radius: 20px;
-    box-shadow: var(--shadow);
+    box-shadow:0 10px 40px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
-/* --- Header --- */
 header {
     text-align: center;
     margin-bottom: 1.5rem;
@@ -48,16 +33,16 @@ header {
 
 header h1 {
     font-weight: 600;
-    color: var(--text-primary);
+    color:#2d3436;
     margin-bottom: 5px;
 }
 
 header p {
-    color: var(--text-secondary);
+    color:  #636e72;
     font-size: 0.9rem;
 }
 
-/* --- Input Section --- */
+
 .input-group {
     display: flex;
     gap: 10px;
@@ -69,15 +54,15 @@ input[type="text"] {
     flex: 1;
     padding: 15px 20px;
     border: 2px solid #edf2f7;
-    border-radius: var(--radius);
+    border-radius: 12px;
     font-size: 1rem;
-    color: var(--text-primary);
+    color:#2d3436;
     transition: all 0.3s ease;
     background: #f8fafc;
 }
 
 input[type="text"]:focus {
-    border-color: var(--primary-color);
+    border-color:  #6c5ce7;
     background: #fff;
     outline: none;
     box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.1);
@@ -85,10 +70,10 @@ input[type="text"]:focus {
 
 #add-btn {
     width: 55px;
-    background: var(--primary-color);
+    background:  #6c5ce7;
     color: white;
     border: none;
-    border-radius: var(--radius);
+    border-radius: 12px;
     font-size: 1.2rem;
     cursor: pointer;
     transition: transform 0.2s, background 0.3s;
@@ -106,7 +91,6 @@ input[type="text"]:focus {
     transform: scale(0.95);
 }
 
-/* --- Filters (Tabs) --- */
 .filters {
     display: flex;
     justify-content: center;
@@ -119,7 +103,7 @@ input[type="text"]:focus {
 .filters span {
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--text-secondary);
+    color: #636e72;
     cursor: pointer;
     padding: 6px 16px;
     border-radius: 20px;
@@ -131,20 +115,20 @@ input[type="text"]:focus {
 }
 
 .filters span.active {
-    background-color: var(--primary-color);
+    background-color:  #6c5ce7;
     color: white;
     box-shadow: 0 4px 10px rgba(108, 92, 231, 0.3);
 }
 
-/* --- Todo List --- */
+
 .todo-list {
     list-style: none;
     max-height: 350px;
     overflow-y: auto;
-    padding-right: 5px; /* Space for scrollbar */
+    padding-right: 5px; 
 }
 
-/* Custom Scrollbar */
+
 .todo-list::-webkit-scrollbar {
     width: 6px;
 }
@@ -159,7 +143,7 @@ input[type="text"]:focus {
     background: #b3b3b3;
 }
 
-/* List Items */
+
 .todo-item {
     display: flex;
     align-items: center;
@@ -179,7 +163,6 @@ input[type="text"]:focus {
     border-color: transparent;
 }
 
-/* Left accent border for items */
 .todo-item::before {
     content: '';
     position: absolute;
@@ -187,7 +170,7 @@ input[type="text"]:focus {
     top: 0;
     height: 100%;
     width: 4px;
-    background: var(--primary-color);
+    background:  #6c5ce7;
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -200,13 +183,13 @@ input[type="text"]:focus {
     flex: 1;
     margin-left: 12px;
     font-size: 1rem;
-    color: var(--text-primary);
+    color: #2d3436;
     cursor: pointer;
     word-break: break-word;
     transition: color 0.3s;
 }
 
-/* Completed State */
+
 .todo-item.checked {
     background: #f8fafc;
     opacity: 0.8;
@@ -218,31 +201,31 @@ input[type="text"]:focus {
 }
 
 .todo-item.checked::before {
-    background: var(--success-color);
+    background: #00b894;
     opacity: 1;
 }
 
-/* Buttons inside items */
+
 .check-btn {
     background: none;
     border: none;
-    color: #dfe6e9; /* Gray when unchecked */
+    color: #dfe6e9; 
     font-size: 1.3rem;
     cursor: pointer;
     transition: color 0.3s;
 }
 
 .todo-item.checked .check-btn {
-    color: var(--success-color); /* Green when checked */
+    color: #00b894;
 }
 
 .check-btn:hover {
-    color: var(--success-color);
+    color: #00b894;
 }
 
 .delete-btn {
     background: #ffecec;
-    color: var(--danger-color);
+    color: #ff7675;
     border: none;
     width: 30px;
     height: 30px;
@@ -264,11 +247,11 @@ input[type="text"]:focus {
 }
 
 .delete-btn:hover {
-    background: var(--danger-color);
+    background:  #ff7675;
     color: white;
 }
 
-/* --- Footer --- */
+
 .footer-info {
     display: flex;
     justify-content: space-between;
@@ -276,14 +259,14 @@ input[type="text"]:focus {
     margin-top: 25px;
     padding-top: 15px;
     border-top: 1px solid #f1f1f1;
-    color: var(--text-secondary);
+    color:  #636e72;
     font-size: 0.85rem;
 }
 
 .clear-btn {
     background: transparent;
-    border: 1px solid var(--danger-color);
-    color: var(--danger-color);
+    border: 1px solid  #ff7675;
+    color:  #ff7675;
     padding: 6px 12px;
     border-radius: 6px;
     font-size: 0.8rem;
@@ -292,18 +275,16 @@ input[type="text"]:focus {
 }
 
 .clear-btn:hover {
-    background: var(--danger-color);
+    background: #ff7675;
     color: white;
 }
 
-/* --- Mobile Responsiveness --- */
 @media (max-width: 480px) {
     .container {
         padding: 1.5rem;
         max-width: 100%;
     }
 
-    /* Show delete button always on touch screens */
     .delete-btn {
         opacity: 1;
         transform: translateX(0);
